@@ -49,7 +49,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/20 z-10 dark:bg-black/40"></div>
         {isMasculine ? (
           <img 
-            src="https://images.unsplash.com/photo-1621189423461-68aa69d1ec4e?q=80&w=1887&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1887&auto=format&fit=crop" 
             alt="Moda Masculina" 
             className="w-full h-full object-cover object-center scale-105 dark:brightness-75"
           />
