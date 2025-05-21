@@ -30,42 +30,38 @@ const LoginForm = ({ className }: LoginFormProps) => {
   };
 
   return (
-    <div className={cn("w-full max-w-md", className)}>
-      <h2 className="text-2xl font-serif mb-6">Login</h2>
-      
+    <div className={cn("w-full max-w-md", className)}>      
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="email">E-mail</Label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
             <Input 
               id="email"
               type="email"
               placeholder="seu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="pl-10 border-muted focus:border-primary"
+              className="pl-10 border-2 border-muted focus:border-primary h-12 text-base"
               required
             />
           </div>
         </div>
         
         <div className="space-y-2">
-          <div className="flex justify-between">
-            <Label htmlFor="password">Senha</Label>
+          <div className="flex justify-end">
             <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Esqueceu?
             </a>
           </div>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
             <Input
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="********"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="pl-10 border-muted focus:border-primary"
+              className="pl-10 border-2 border-muted focus:border-primary h-12 text-base"
               required
             />
             <button
@@ -89,7 +85,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
           </Label>
         </div>
         
-        <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 transition-colors">
+        <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 transition-colors h-12 text-base font-medium">
           {isLoading ? "Entrando..." : "Entrar"}
         </Button>
       </form>

@@ -6,9 +6,28 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
   const [loaded, setLoaded] = useState(false);
+  const [isMasculine, setIsMasculine] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
+
+    // Check if masculine theme is active
+    const checkTheme = () => {
+      const isMasculineTheme = document.documentElement.classList.contains('masculine');
+      setIsMasculine(isMasculineTheme);
+    };
+
+    // Initial check
+    checkTheme();
+
+    // Set up observer to detect theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { 
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -28,14 +47,22 @@ const Index = () => {
       {/* Right column - Image */}
       <div className="hidden md:block md:w-1/2 h-screen relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20 z-10 dark:bg-black/40"></div>
-        <img 
-          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop" 
-          alt="Vitrine Fashion" 
-          className="w-full h-full object-cover object-center scale-105 dark:brightness-75"
-        />
+        {isMasculine ? (
+          <img 
+            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=5304&auto=format&fit=crop" 
+            alt="Moda Masculina" 
+            className="w-full h-full object-cover object-center scale-105 dark:brightness-75"
+          />
+        ) : (
+          <img 
+            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop" 
+            alt="Moda Feminina" 
+            className="w-full h-full object-cover object-center scale-105 dark:brightness-75"
+          />
+        )}
         <div className="absolute bottom-0 left-0 right-0 p-10 z-20">
           <div className="glass-effect p-6 md:p-8 rounded-lg max-w-md mx-auto text-left">
-            <h3 className="font-serif text-2xl mb-2">Nova coleção outono</h3>
+            <h3 className="font-serif text-2xl mb-2">{isMasculine ? "Nova coleção masculina" : "Nova coleção feminina"}</h3>
             <p className="text-foreground/80 text-sm">
               Descubra as últimas tendências e peças exclusivas para a temporada em nossa loja online. 
               Estilo e sofisticação para todos os momentos.
