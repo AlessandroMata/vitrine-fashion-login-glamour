@@ -37,14 +37,14 @@ const LoginForm = ({ className }: LoginFormProps) => {
         <div className="space-y-2">
           <Label htmlFor="email">E-mail</Label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input 
               id="email"
               type="email"
               placeholder="seu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="pl-10"
+              className="pl-10 border-muted focus:border-primary"
               required
             />
           </div>
@@ -53,19 +53,19 @@ const LoginForm = ({ className }: LoginFormProps) => {
         <div className="space-y-2">
           <div className="flex justify-between">
             <Label htmlFor="password">Senha</Label>
-            <a href="#" className="text-xs text-gray-500 hover:text-black transition-colors">
+            <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Esqueceu a senha?
             </a>
           </div>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="********"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="pl-10"
+              className="pl-10 border-muted focus:border-primary"
               required
             />
             <button
@@ -74,9 +74,9 @@ const LoginForm = ({ className }: LoginFormProps) => {
               className="absolute right-3 top-1/2 transform -translate-y-1/2"
             >
               {showPassword ? (
-                <EyeOff className="h-4 w-4 text-gray-400" />
+                <EyeOff className="h-4 w-4 text-muted-foreground" />
               ) : (
-                <Eye className="h-4 w-4 text-gray-400" />
+                <Eye className="h-4 w-4 text-muted-foreground" />
               )}
             </button>
           </div>
@@ -89,31 +89,31 @@ const LoginForm = ({ className }: LoginFormProps) => {
           </Label>
         </div>
         
-        <Button type="submit" disabled={isLoading} className="w-full bg-black hover:bg-gray-800">
+        <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 transition-colors">
           {isLoading ? "Entrando..." : "Entrar"}
         </Button>
         
         <div className="relative flex items-center justify-center">
-          <div className="border-t border-gray-200 flex-grow"></div>
-          <span className="px-3 text-xs text-gray-400">ou continue com</span>
-          <div className="border-t border-gray-200 flex-grow"></div>
+          <div className="border-t border-muted flex-grow"></div>
+          <span className="px-3 text-xs text-muted-foreground">ou continue com</span>
+          <div className="border-t border-muted flex-grow"></div>
         </div>
         
         <div className="grid grid-cols-3 gap-2">
-          <Button variant="outline" className="h-10" type="button">
+          <Button variant="outline" className="h-10 border-muted hover:border-primary/50" type="button">
             Google
           </Button>
-          <Button variant="outline" className="h-10" type="button">
+          <Button variant="outline" className="h-10 border-muted hover:border-primary/50" type="button">
             Facebook
           </Button>
-          <Button variant="outline" className="h-10" type="button">
+          <Button variant="outline" className="h-10 border-muted hover:border-primary/50" type="button">
             Apple
           </Button>
         </div>
         
         <div className="text-center text-sm">
-          <span className="text-gray-500">Não tem uma conta? </span>
-          <a href="#" className="font-medium hover:text-black transition-colors">
+          <span className="text-muted-foreground">Não tem uma conta? </span>
+          <a href="#" className="font-medium text-primary hover:text-primary/80 transition-colors">
             Cadastre-se
           </a>
         </div>
