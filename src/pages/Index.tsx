@@ -34,7 +34,8 @@ const Index = () => {
     <div className="w-full min-h-screen flex flex-col md:flex-row overflow-hidden">
       {/* Left column - Form */}
       <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-center p-6 md:p-12 lg:p-20 relative">
-        <div className="absolute top-4 right-4">
+        {/* Move theme toggle to the top of the page on mobile */}
+        <div className="w-full max-w-md flex justify-end mb-4 md:mb-0 md:absolute md:top-4 md:right-4">
           <ThemeToggle />
         </div>
         
