@@ -31,7 +31,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 
   return (
     <div className={cn("w-full max-w-md", className)}>
-      <h2 className="text-2xl font-serif mb-6">Entrar na sua conta</h2>
+      <h2 className="text-2xl font-serif mb-6">Login</h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
@@ -54,7 +54,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
           <div className="flex justify-between">
             <Label htmlFor="password">Senha</Label>
             <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
-              Esqueceu a senha?
+              Esqueceu?
             </a>
           </div>
           <div className="relative">
@@ -92,31 +92,6 @@ const LoginForm = ({ className }: LoginFormProps) => {
         <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 transition-colors">
           {isLoading ? "Entrando..." : "Entrar"}
         </Button>
-        
-        <div className="relative flex items-center justify-center">
-          <div className="border-t border-muted flex-grow"></div>
-          <span className="px-3 text-xs text-muted-foreground">ou continue com</span>
-          <div className="border-t border-muted flex-grow"></div>
-        </div>
-        
-        <div className="grid grid-cols-3 gap-2">
-          <Button variant="outline" className="h-10 border-muted hover:border-primary/50" type="button">
-            Google
-          </Button>
-          <Button variant="outline" className="h-10 border-muted hover:border-primary/50" type="button">
-            Facebook
-          </Button>
-          <Button variant="outline" className="h-10 border-muted hover:border-primary/50" type="button">
-            Apple
-          </Button>
-        </div>
-        
-        <div className="text-center text-sm">
-          <span className="text-muted-foreground">Não tem uma conta? </span>
-          <a href="#" className="font-medium text-primary hover:text-primary/80 transition-colors">
-            Cadastre-se
-          </a>
-        </div>
       </form>
     </div>
   );
